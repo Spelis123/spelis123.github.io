@@ -1,0 +1,133 @@
+title {
+    animation-delay: -1s;
+}
+h1 {
+    font-family: Roboto;
+}
+p {
+    font-family: Roboto;
+}
+a {
+    text-decoration: none;
+    color: #808080;
+    transition: 0.5s ease;
+}
+a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+    transition: 0.5s ease;
+}
+#gold {
+    color: #ffd700;
+    text-shadow: 0px 0px 10px gold;
+}
+.box {
+    width:calc(25% - 30px);
+    height:200px;
+    background-color: #101010;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+    border: 5px solid #050505;
+    overflow: hidden;
+}
+.box#off {
+    background-color: #070707;
+    border-color: #030303;
+}
+.box p1 {
+    font-size: 25px;
+    font-family: Roboto;
+}
+.box a {
+    font-family: Roboto;
+    font-weight: bold;
+    text-decoration: none;
+    color:cornflowerblue;
+    
+}
+.box share {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+tp {
+    float: left;
+    font-family: Roboto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+    z-index: 3;
+    transition: .3s ease-in-out;
+    color: cornflowerblue;
+}
+tp:hover {
+    color:cornflowerblue;
+    transition: 0.3s ease-in-out;
+}
+tp#right {
+    float:right;
+}
+tp .tp {
+    overflow: hidden;
+    width: 0;
+    visibility: hidden;
+    background: #101010;
+    background: linear-gradient(90deg, #101010ff 0%, #10101080 0%);
+    color: #ffffff00;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    top: 10px;
+    bottom: 0px;
+    left: 0px;
+    right: 400px;
+    transition: 0.5s ease-in-out;
+}
+
+tp:hover .tp {
+    overflow: hidden;
+    width: 100%;
+    visibility: visible;
+    background-color: #101010;
+    color: #ffffffff;
+    transition: 0.5s ease;
+    right: 0px;
+}
+
+socials {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 30px;
+    transition: .2s ease-in-out;
+}
+socials#right{
+    float:left
+}
+socials#left{
+    float:right
+}
+socials:hover {
+    font-size: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: .3s ease-in-out;
+}
+socials#crim a {
+    color: crimson;
+}
+socials#purp a {
+    color: #8d5ed4;
+}
+socials#blurp a {
+    color: #5865F2;
+}
+socials#corn a {
+    color: cornflowerblue;
+}
