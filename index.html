@@ -4,7 +4,7 @@
   <body style="background-color:black;color:white;">
     <title>Spelis's Projects</title>
     <meta content="Spelis's Projects" property="og:title" />
-    <meta content="Bitch you better check this out" property="og:description" />
+    <meta content="" property="og:description" />
     <meta content="https://spelis123.github.io/" property="og:url" />
     <meta content="https://spelis123.github.io/sgi.png" property="og:image" />
     <meta content="#0080ff" data-react-helmet="true" name="theme-color" />
@@ -18,7 +18,7 @@
 
     <center>
       <h1 style="font-size: 64px; margin-bottom: 5px; margin-top: 5px; background: linear-gradient(to right, #0080ff 0%, #ff1010 100%);border-radius: 20px; margin-left: 10%; margin-right: 10%;">SPELIS123.GITHUB.IO</h1>
-      <p>The Home For <a href="https://github.com/spelis123">All My Projects</a> Hosted On <a href="https://github.com/"><i class="fa-brands fa-github"></i> GitHub!</a> And A Couple Others!</p>
+      <p>The Home For <a href="https://github.com/spelis123">All My Projects</a> Hosted On <a href="https://github.com/"><i class="fa-brands fa-github"></i> GitHub!</a> And A Couple Other Projects!</p>
       <div style="height:50px">
 
         <socials id="crim" id="right" title="Tag:
@@ -33,63 +33,28 @@ Server:
 discord.gg/FxRmZfQnRs"><a href="https://discord.gg/FxRmZfQnRs"><i class="fa-brands fa-discord"></i></a></socials>
 
         <socials id="corn" id="right" title="Contact Me:
-Spelis@duck.com"><a><i class="fa-solid fa-inbox"></i></a></socials>
+Spelis@duck.com"><a onclick="copyTextToClipboard('Spelis@duck.com')"><i class="fa-solid fa-inbox"></i></a></socials>
       </div>
     </center>
 
-    <a href="https://github.com/Spelis123/SkinToPFP">
-    <div class="box" id="stp">
-      <div class="text">
-        <h1>Skin To PFP</h1>
-          <a1><p1><i class="fa-solid fa-arrow-up-right-from-square"></i> Redirect</p1></a1>
-        </div>
-        <h1 class="thing"><i class="fa-brands fa-github"></i></h1>
-        <div class="imagebox">
-          <img src="https://raw.githubusercontent.com/Spelis123/SkinToPFP/main/assets/icon.png">
-        </div>
-      </div>
-    </a>
+    <div id="parent" style="align-items:center; width:100%,height:200px">
+      <!-- "box" div elements will be appended here -->
+    </div>
     
-    <a href="https://github.com/Spelis123/passgen">
-      <div class="box" id="pg">
-        <div class="text">
-          <h1>Password Generator</h1>
-          <a1><i class="fa-solid fa-arrow-up-right-from-square"></i> Redirect</a1>
-      </div>
-      <h1 class="thing"><i class="fa-brands fa-github"></i></h1>
-      <div class="imagebox">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhotemoji.com%2Fimages%2Fdl%2F2%2Flock-emoji-by-twitter.png&f=1&nofb=1&ipt=1a7da8c23441d86ab4be2b8dcfad10017e59706492a1a31ab8fc6bb5afb112e8&ipo=images">
-      </div>
-    </div>
-  </a>
+    <script>
+      // create a new "box" div element
+      const boxDiv = makeBoxDiv('stp', 'Skin To PFP', 'https://github.com/Spelis123/SkinToPFP', 'https://raw.githubusercontent.com/Spelis123/SkinToPFP/main/assets/icon.png', 'github');
+      document.getElementById('parent').appendChild(boxDiv);
 
-  <div class="box" id="sgi">
-    <div class="text">
-      <h1><br>spelis123.github.io</h1>
-    </div>
-    <h3 class="thing"><i class="fa-solid fa-globe"></i></h3>
-    <div class="imagebox">
-      <img src="sgi.png">
-    </div>
-  </div>
+      const boxDiv1 = makeBoxDiv('pg', 'Password Generator', 'https://github.com/Spelis123/passgen', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhotemoji.com%2Fimages%2Fdl%2F2%2Flock-emoji-by-twitter.png&f=1&nofb=1&ipt=1a7da8c23441d86ab4be2b8dcfad10017e59706492a1a31ab8fc6bb5afb112e8&ipo=images', 'github');
+      document.getElementById('parent').appendChild(boxDiv1);
 
-    <a href="https://discord.com/api/oauth2/authorize?client_id=1049360615665319956&permissions=8&scope=bot">
-      <div class="box" id="txt">
-        <div class="text">
-          <h1>TxtlyBot</h1>
-          <a1><span style="color:cornflowerblue"><i class="fa-brands fa-discord"></i></span> Invite</a1>
-        </div>
-        <h3 class="thing"><i class="fa-brands fa-discord"></i></h3>
-        <div class="imagebox">
-          <img src="txtly.png" id="rounded">
-        </div>
-      </div>
-    </a>
+      const boxDiv2 = makeBoxDiv('sgi', 'spelis123.github.io', 'https://github.com/Spelis123/spelis123.github.io', 'sgi.png', 'github');
+      document.getElementById('parent').appendChild(boxDiv2);
 
-    <div class="box" id="off"><div class="text"><h1><br>Not Available</h1></div></div>
-    <div class="box" id="off"><div class="text"><h1><br>Not Available</h1></div></div>
-    <div class="box" id="off"><div class="text"><h1><br>Not Available</h1></div></div>
-    <div class="box" id="off"><div class="text"><h1><br>Not Available</h1></div></div>
+      const boxDiv3 = makeBoxDiv('txt', 'TxtlyBot', 'https://discord.com/api/oauth2/authorize?client_id=1049360615665319956&permissions=8&scope=bot', 'txtly.png', 'discord', 'Invite',"rounded");
+      document.getElementById('parent').appendChild(boxDiv3);
+    </script>
 
     <center>
       <div class="aboutme">
@@ -101,5 +66,4 @@ Spelis@duck.com"><a><i class="fa-solid fa-inbox"></i></a></socials>
 
     <a href="https://www.youtube.com/watch?v=LLFhKaqnWwk"><img src="https://i.ibb.co/6bkX9WW/spelis.png" id="spelis"></a>
   </body>
-
 </html>

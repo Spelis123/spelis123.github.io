@@ -1,5 +1,11 @@
+html > * {
+    font-family: Roboto;
+}
+body {
+    margin: 0px;
+}
 title {
-    animation-delay: -1s;
+    animation-delay: 0s;
 }
 h1 {
     font-family: Roboto;
@@ -13,7 +19,37 @@ a {
     text-decoration: none;
     color: #808080;
     transition: 0.5s ease;
+    cursor: pointer;
 }
+.square {
+    position: fixed;
+    width:50px;
+    height:50px;
+    animation: glitch 1s infinite;
+    z-index: -1;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(-50px);
+    }
+    20% {
+      transform: translate(10px, 10px);
+    }
+    40% {
+      transform: translate(-10px, -10px);
+    }
+    60% {
+      transform: translate(10px, -10px);
+    }
+    80% {
+      transform: translate(-10px, 10px);
+    }
+    100% {
+      transform: translate(-50px);
+    }
+  }
+  
 a:hover {
     text-decoration: underline;
     color: #ffffff;
@@ -36,17 +72,28 @@ a:hover {
     float: left;
     border: 5px solid #050505;
     overflow: hidden;
+    align-self: center;
 }
-.box#stp {
+.dlbox {
+    margin:0;
+    width:100%;
+    height:200px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.dlbox button {
+    float:right;
+}
+#stp {
     background-image: linear-gradient(-180deg,#ff8000,#402000);
 }
-.box#pg {
+#pg {
     background-image: linear-gradient(-180deg,#0080ff,#002040);
 }
-.box#sgi {
+#sgi {
     background-image: linear-gradient(-180deg,#8000ff,#200040);
 }
-.box#txt {
+#txt {
     background-image: linear-gradient(-180deg,#008000,#002000);
 }
 .box#off {
@@ -117,7 +164,30 @@ a:hover {
     clip-path: polygon(100% 0, 50% 0, 100% 100%);
     z-index: 1;
     text-align: right;
-    padding: 2.5%;
+    padding: 1.25%;
+    transition: all .5s ease;
+}
+.box .copylink {
+    position:absolute;
+    width:25%;
+    height:50%;
+    background-color: #101010;
+    bottom:-50%;
+    right:-25%;
+    clip-path: polygon(100% 0, 50% 100%, 100% 100%);
+    z-index: 3;
+    text-align: right;
+    padding: 1.25%;
+    transition: all .5s ease;
+}
+.box .copylink a1 {
+    position: absolute;
+    bottom:15px;
+    right:10px
+}
+.box:hover .copylink {
+    bottom:-10%;
+    right:0%;
     transition: all .5s ease;
 }
 .box:hover .thing {
@@ -134,7 +204,13 @@ a:hover {
     bottom: 5px;
     right: 5px;
 }
-
+button {
+    background-color: #0080ff;
+    border: 2px solid #00408080;
+    border-radius: 10px;
+    color: black;
+    font-size: large;
+}
 socials {
     margin-left: 10px;
     margin-right: 10px;
@@ -177,7 +253,6 @@ img#spelis {
     transition-delay: 0s;
 }
 img#spelis:hover {
-    position: fixed;
     bottom:0px;
     left:0;
     width:80px;
@@ -196,4 +271,34 @@ div.aboutme h3 {
 }
 #rounded {
     border-radius: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.downloadbox {
+    background-color: #000000bf;
+    border: 5px solid white;
+    width:75%;
+    height:75%;
+    position: fixed;
+    top:12.5%;
+    left:12.5%;
+    align-content: center;
+    border-radius: 100px;
+    text-align: center;
+}
+.downloadbox > * {
+    font-size: 200%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.downloadbox h1 {
+    font-size:300%;
 }
