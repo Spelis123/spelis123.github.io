@@ -93,7 +93,7 @@ function makeDiscordEmbedThing() {
     const dt = urlParams.get('dt');
     const dd = urlParams.get('dd');
     const dimg = urlParams.get('dimg');
-    const sn = urlParams.get('sn');
+    const sn = "Spelis's projects";
     const dli = urlParams.get('dli')
 
     const ogDescription = document.createElement('meta');
@@ -116,9 +116,10 @@ function makeDiscordEmbedThing() {
     ogTitle.property = 'og:title';
     ogTitle.content = dt;
 }
-
   document.addEventListener('DOMContentLoaded', () => {
     const box = makeBoxFromURL();
     document.body.appendChild(box);
+    const dcembed = makeDiscordEmbedThing();
+    document.body.appendChild(dcembed);
   });
   
