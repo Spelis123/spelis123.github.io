@@ -1,8 +1,6 @@
 html > * {
     font-family: Roboto;
-}
-body {
-    margin: 0px;
+    margin:0px;
 }
 title {
     animation-delay: 0s;
@@ -21,35 +19,21 @@ a {
     transition: 0.5s ease;
     cursor: pointer;
 }
-.square {
-    position: fixed;
-    width:50px;
-    height:50px;
-    animation: glitch 1s infinite;
-    z-index: -1;
-  }
-  
-  @keyframes glitch {
-    0% {
-      transform: translate(-50px);
-    }
-    20% {
-      transform: translate(10px, 10px);
-    }
-    40% {
-      transform: translate(-10px, -10px);
-    }
-    60% {
-      transform: translate(10px, -10px);
-    }
-    80% {
-      transform: translate(-10px, 10px);
-    }
-    100% {
-      transform: translate(-50px);
-    }
-  }
-  
+i#gitInfo {
+    background-color: #001020ff;
+    border-radius: 5px;
+    color: #0080ff;
+    padding:5px;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
+i#gitInfo:hover {
+    background-color: #0080ffff;
+    color: #ffffff;
+    padding:7.5px;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
 a:hover {
     text-decoration: underline;
     color: #ffffff;
@@ -63,7 +47,7 @@ a:hover {
     width:calc(25% - 30px);
     height:200px;
     border-radius: 20px;
-    background-color: #101010;
+    background: #101010;
     text-align: center;
     margin-right: 10px;
     margin-left: 10px;
@@ -73,6 +57,12 @@ a:hover {
     border: 5px solid #050505;
     overflow: hidden;
     align-self: center;
+    transition: all .5s ease;
+}
+.box:hover {
+    background: brightness(.5) !important;
+    box-shadow: 0px 0px 20px #0080ff;
+    transition: all .5s ease;
 }
 .dlbox {
     margin:0;
@@ -84,18 +74,6 @@ a:hover {
 .dlbox button {
     float:right;
 }
-#stp {
-    background-image: linear-gradient(-180deg,#ff8000,#402000);
-}
-#pg {
-    background-image: linear-gradient(-180deg,#0080ff,#002040);
-}
-#sgi {
-    background-image: linear-gradient(-180deg,#8000ff,#200040);
-}
-#txt {
-    background-image: linear-gradient(-180deg,#008000,#002000);
-}
 .box#off {
     background-color: #070707;
     border-color: #030303;
@@ -105,9 +83,9 @@ a:hover {
     width:100%;
     height:50%;
     text-align: center;
-    background-image: linear-gradient(0deg,#101010BF 50%,#00000000);
+    background-image: linear-gradient(0deg,#101010BF 75%, #10101000);
     position: absolute;
-    bottom:-50%;
+    bottom:-100%;
     z-index: 1;
     transition: all 0.5s ease;
 }
@@ -143,15 +121,11 @@ a:hover {
     
 }
 .box .imagebox {
+    background: linear-gradient(156deg, rgba(0,0,0,75%) 0%, rgba(0,0,0,0) 100%);
     height:100%;
     width:100%;
     position:absolute;
-    bottom:5%;
-    filter: blur(0);
-    transition: all .5s ease;
-}
-.box:hover .imagebox {
-    filter: blur(25px);
+    bottom:0;
     transition: all .5s ease;
 }
 .box .thing {
@@ -160,44 +134,61 @@ a:hover {
     height:25%;
     background-color: #101010;
     top:-35%;
-    right:-25%;
-    clip-path: polygon(100% 0, 50% 0, 100% 100%);
+    left:-25%;
+    clip-path: polygon(100% 0, 50% 0, 50% 100%); 
     z-index: 1;
     text-align: right;
-    padding: 1.25%;
     transition: all .5s ease;
+}
+.box .thing > * {
+    margin-right: 25%;
+    margin-top: 5%;
 }
 .box .copylink {
     position:absolute;
-    width:25%;
-    height:50%;
-    background-color: #101010;
-    bottom:-50%;
+    width:12%;
+    height:25%;
+    background-color: #151515;
+    bottom:-10%;
     right:-25%;
-    clip-path: polygon(100% 0, 50% 100%, 100% 100%);
     z-index: 3;
     text-align: right;
     padding: 1.25%;
     transition: all .5s ease;
+    border-top-left-radius: 12.5px;
+    border-left: 2px solid #202020;
+    border-top: 2px solid #202020;
 }
-.box .copylink a1 {
-    position: absolute;
-    bottom:15px;
-    right:10px
+.box .copylink > * {
+    margin-left: 3%;
 }
 .box:hover .copylink {
-    bottom:-10%;
     right:0%;
     transition: all .5s ease;
 }
 .box:hover .thing {
     top:-10%;
-    right:0px;
+    left:-12.75%;
     transition: all .5s ease;
 }
-.box .imagebox img {
-    height:90%;
-    margin-top: 5%;
+.box > .imagebox > img {
+    background-color: #00000060;
+    height:75%;
+    width:33.337%;
+    margin-top: 4%;
+    border-radius: 10%;
+    padding: 2%;
+    transition: all .5s ease;
+}
+.box:hover > .imagebox > img {
+    background-color: #000000BF;
+    border-radius: 50%;
+    padding: 0;
+    height:110%;
+    width: 48.89%;
+    margin-top: -2.5%;
+    margin-left: 65%;
+    transition: all .5s ease;
 }
 .box share {
     position: absolute;
@@ -206,28 +197,22 @@ a:hover {
 }
 button {
     background-color: #0080ff;
-    border: 2px solid #00408080;
-    border-radius: 10px;
-    color: black;
+    border: 0px solid #00000000;
+    border-radius: 5px;
+    color: white;
     font-size: large;
 }
 socials {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 30px;
+    font-size: 50px;
     transition: .2s ease-in-out;
 }
 socials a {
     color:#303030;
 }
-socials#right{
-    float:left
-}
-socials#left{
-    float:right
-}
 socials:hover {
-    font-size: 40px;
+    font-size: 62.5px;
     margin-left: 15px;
     margin-right: 15px;
     transition: .3s ease-in-out;
@@ -237,6 +222,9 @@ socials#crim a:hover {
 }
 socials#purp a:hover {
     color: #8d5ed4;
+}
+socials#green a:hover {
+    color: #008000;
 }
 socials#blurp a:hover {
     color: #5865F2;
@@ -259,29 +247,10 @@ img#spelis:hover {
     transition: 0.3s ease-out;
     transition-delay: 0.25s;
 }
-img.profilepic {
-    background-color:#202020;
-    border-radius: 100%;
-    border: 5px solid #151515;
-    height: 200px;
-}
 div.aboutme h3 {
     font-family: Roboto;
     font-weight: 300;
 }
-#rounded {
-    border-radius: 100%;
-}
-
-
-
-
-
-
-
-
-
-
 .downloadbox {
     background-color: #000000bf;
     border: 5px solid white;
@@ -301,4 +270,171 @@ div.aboutme h3 {
 }
 .downloadbox h1 {
     font-size:300%;
+}
+a1 > .tpt {
+    background-color: #10101000;
+    pointer-events: none;
+    color: #ffffff00;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    right: 125%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: -50%; /* Use half of the width (120/2 = 60), to center the tooltip */
+    transition: all .5s ease;
+}
+    
+    /* Show the tooltip text when you mouse over the tooltip container */
+a1:hover > .tpt {
+    background-color: #101010ff;
+    color: #ffffffff;
+    transition: all .5s ease;
+    pointer-events: none;
+}
+a1 > .tpt::after {
+    content: " ";
+    position: absolute;
+    bottom: 10%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #10101000;
+    transition: all .5s ease;
+    pointer-events: none;
+}
+a1:hover > .tpt::after {
+    border-color: transparent transparent transparent #101010ff;
+    transition: all .5s ease;
+    pointer-events: none;
+}
+div#parent {
+    background-color: #ffffff;
+    border-radius: 30px;
+    width: 100%;
+    height:100%;
+}
+
+.area{
+    background: hsl(237, 0%, 1%);
+    width: 100%;
+    height:100vh;
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: #ffffff20;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(-720deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
 }
