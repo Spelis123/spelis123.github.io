@@ -145,6 +145,12 @@ function makeBoxDiv(bg, title, link, img, icon, apiLink = '', dlLink = '') {
         if (data.language == "JavaScript") {
           gitLang.innerHTML = '<i class="fa-brands fa-square-js" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
         }
+        if (data.language == "HTML") {
+          gitLang.innerHTML = '<i class="fa-brands fa-html5" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        }
+        if (data.language == "CSS") {
+          gitLang.innerHTML = '<i class="fa-brands fa-css-alt" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        }
         redirectTextElement.appendChild(gitLang);
         gitLang.style.fontSize = "20px"
 
