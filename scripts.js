@@ -25,170 +25,154 @@ function copyTextToClipboard(text) {
 
 
 
-
-
-
-
-
-function makeBoxDiv(bg, title, link, img, icon, apiLink = '', dlLink = '') {
-  // create a div element for the "box"
+function makeBoxDiv(title, link, img, apiLink = '', dlLink = '') {
   const boxDiv = document.createElement('div');
   boxDiv.className = 'box';
-  boxDiv.style.setProperty('--boxbg', boxDiv.getAttribute.backgroundColor);
-  boxDiv.style.backgroundColor = bg;
 
-  // create a div element for the "text"
   const textDiv = document.createElement('div');
   textDiv.className = 'text';
 
-  // create a heading element for the title
   const titleHeading = document.createElement('h1');
   titleHeading.textContent = title;
 
-  // create an anchor element for the redirect link
-  const redirectAnchor = document.createElement('a1');
+  link = 'https://github.com/Spelis123/' + link
 
-  // create a div element for the "copylink"
-  const copyLinkDiv = document.createElement('div');
-  copyLinkDiv.className = 'copylink';
+  const ImageBox = document.createElement('div');
+  ImageBox.className = 'imagebox'
+  ImageBox.style.backgroundImage = "url('" + img + "')"
+  boxDiv.appendChild(ImageBox)
 
-  // create an anchor element for the copy link
-  const copyLinkAnchor = document.createElement('a1');
-  copyLinkAnchor.innerHTML = '<i class="fa-solid fa-copy" title="Copy Link"></i>';
-  copyLinkAnchor.addEventListener('click', (event) => {
-    event.preventDefault();
-    navigator.clipboard.writeText(link);
-  });
-  const cltt = document.createElement('p');
-  cltt.className = 'tpt';
-  cltt.textContent = 'Copy Link';
-  copyLinkAnchor.appendChild(cltt);
-  copyLinkDiv.appendChild(copyLinkAnchor);
-
-  if (dlLink.length > 0) {
-    const downloadLink = document.createElement('a1');
-    downloadLink.innerHTML = '<i class="fa-solid fa-download" title="Download"></i>';
-    downloadLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      location.href = dlLink;
-    });
-    copyLinkDiv.appendChild(downloadLink);
-    const downloadtt = document.createElement('p');
-    downloadtt.className = 'tpt';
-    downloadtt.textContent = 'Download';
-    downloadLink.appendChild(downloadtt);
-  }
-  else {
-    copyLinkDiv.style.width = '8%'
-  }
-  const parts = link.split('/');
-  const theLink = parts[0] + '/' + parts[1] + '/' + parts[2] + '/';
-  const codeLink = document.createElement('a1');
-  if (theLink.includes("github")) {
-    codeLink.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square" title="Source Code"></i>';
-    codeLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.open(link, "Source Code", "height=700,width=1000");
-    });
-  }
-  else {
-    codeLink.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square" title="Open"></i>';
-    codeLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.open(link);
-    });
-  }
-    copyLinkDiv.appendChild(codeLink);
-    const codett = document.createElement('p');
-    codett.className = 'tpt';
-    codett.textContent = 'Redirect To ' + theLink;
-    codeLink.appendChild(codett);
-
-  // append the title heading and redirect anchor to the "text" div
   textDiv.appendChild(titleHeading);
-  textDiv.appendChild(redirectAnchor);
-  textDiv.appendChild(copyLinkDiv);
-
-  // create a heading element for the icon
-  const iconHeading = document.createElement('h1');
-  iconHeading.className = 'thing';
-    iconHeading.id = 'gold';
-    iconHeading.innerHTML = `<i class="fa-brands fa-${icon}"></i>`;
   
-    // create a div element for the "imagebox"
-    const imageBoxDiv = document.createElement('div');
-    imageBoxDiv.className = 'imagebox';
-  
-    // create an image element for the project image
-    const image = document.createElement('img');
-    image.src = img;
-    imageBoxDiv.appendChild(image);
-  
-    // append the "text", "thing", and "imagebox" divs to the "box" div
     boxDiv.appendChild(textDiv);
-    boxDiv.appendChild(iconHeading);
-    boxDiv.appendChild(imageBoxDiv);
+    const infoDiv = document.createElement('div')
+    infoDiv.className = 'infoDiv'
+    infoDiv.style.backgroundColor = '#202020'
+    infoDiv.style.boxShadow = "inset 0 0 50px #000000"
+    boxDiv.appendChild(infoDiv)
+
+    const gitInfoDiv = document.createElement('div');
+    gitInfoDiv.style.height = "66%";
+    gitInfoDiv.style.width = "100%"
+    gitInfoDiv.style.display = "block";
+    gitInfoDiv.style.padding = '5px';
+    gitInfoDiv.className = 'gitInfoDiv'
+    infoDiv.appendChild(gitInfoDiv)
+
     if (apiLink.length > 0) {
-      fetch(apiLink)
+      fetch('https://api.github.com/repos/Spelis123/' + apiLink)
       .then(response => response.json())
       .then(data => {
-        const gitLang = document.createElement('a1');
-        const gitCreate = document.createElement('a1');
-        const gitUpdate = document.createElement('a1');
-        const gitWatchers = document.createElement('a1');
-        const gitDesc = document.createElement('a1');
-        const redirectTextElement = document.createElement('div');
+        const gitLang = document.createElement('p');gitLang.style.width = "fit-content";
+        const gitCreate = document.createElement('p');
+        const gitUpdate = document.createElement('p');
+        const gitWatchers = document.createElement('p');
+        const gitDesc = document.createElement('p');
+        const gitFork = document.createElement('p');
+        const gitLicense = document.createElement('p');
+        const gitTopics = document.createElement('p');
 
-        if (data.language == "Python") {
-          gitLang.innerHTML = '<i class="fa-brands fa-python" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        gitLang.innerHTML = '<i class="fa-duotone fa-language" title="Language"></i> ' + data.language
+        gitWatchers.innerHTML = '<i class="fa-duotone fa-eye" title="Number Of Watchers | Repository Publicity"></i> ' + data.watchers_count + ' : ' + data.visibility
+        gitCreate.innerHTML = '<i class="fa-duotone fa-calendar-circle-plus" title="Date Created"></i> ' + data.created_at.substring(0,10)
+        gitUpdate.innerHTML = '<i class="fa-duotone fa-calendar-circle-exclamation" title="Date Last Updated"></i> ' + data.updated_at.substring(0,10)
+        gitDesc.innerHTML = '<i class="fa-duotone fa-message-smile" title="Description"></i> "' + data.description + '"'
+        gitFork.innerHTML = '<i class="fa-duotone fa-fork" title="Number Of Forks | Forkable"></i> ' + data.forks_count + ' : ' + data.allow_forking
+        gitLicense.innerHTML = '<i class="fa-duotone fa-id-card" title="License"></i> ' + data.license
+        if (data.topics != '') {gitTopics.innerHTML = '<i class="fa-duotone fa-tag" title="Tags"></i> <a class="tag">' + data.topics.slice(0,4).join('</a><a class="tag">')}
+        else {gitTopics.innerHTML = '<i class="fa-duotone fa-tag" title="Tags"></i> No Tags' }
+
+        gitInfoDiv.appendChild(gitLang)
+        gitInfoDiv.appendChild(gitWatchers)
+        gitInfoDiv.appendChild(gitCreate)
+        gitInfoDiv.appendChild(gitUpdate)
+        gitInfoDiv.appendChild(gitDesc)
+        gitInfoDiv.appendChild(gitFork)
+        gitInfoDiv.appendChild(gitLicense)
+        gitInfoDiv.appendChild(gitTopics)
+
+        if (gitTopics.querySelectorAll('a.tag')[0]) {
+        gitTopics.querySelectorAll('a.tag')[0].href = 'https://github.com/topics/' + gitTopics.querySelectorAll('a.tag')[0].textContent
         }
-        if (data.language == "JavaScript") {
-          gitLang.innerHTML = '<i class="fa-brands fa-square-js" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        if (gitTopics.querySelectorAll('a.tag')[1]) {
+          gitTopics.querySelectorAll('a.tag')[1].href = 'https://github.com/topics/' + gitTopics.querySelectorAll('a.tag')[1].textContent
+          }
+        if (gitTopics.querySelectorAll('a.tag')[2]) {
+          gitTopics.querySelectorAll('a.tag')[2].href = 'https://github.com/topics/' + gitTopics.querySelectorAll('a.tag')[2].textContent
         }
-        if (data.language == "HTML") {
-          gitLang.innerHTML = '<i class="fa-brands fa-html5" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        if (gitTopics.querySelectorAll('a.tag')[3]) {
+          gitTopics.querySelectorAll('a.tag')[3].href = 'https://github.com/topics/' + gitTopics.querySelectorAll('a.tag')[3].textContent
         }
-        if (data.language == "CSS") {
-          gitLang.innerHTML = '<i class="fa-brands fa-css-alt" id="gitInfo" title="Most Used Language: ' + data.language + '"></i>';
+        if (gitTopics.querySelectorAll('a.tag')[4]) {
+          gitTopics.querySelectorAll('a.tag')[4].href = 'https://github.com/topics/' + gitTopics.querySelectorAll('a.tag')[4].textContent
         }
-        redirectTextElement.appendChild(gitLang);
-        gitLang.style.fontSize = "20px"
-
-        gitCreate.innerHTML = ' <i class="fa-solid fa-file-circle-plus" id="gitInfo" title="Created At: ' + data.created_at.substring(0,10) + '"></i>'
-        redirectTextElement.appendChild(gitCreate);
-        gitCreate.style.fontSize = "18px"
-
-        gitUpdate.innerHTML = ' <i class="fa-solid fa-code-commit" id="gitInfo" title="Last Updated: ' + data.updated_at.substring(0,10) + '"></i>'
-        redirectTextElement.appendChild(gitUpdate);
-        gitUpdate.style.fontSize = "20px"
-
-        gitWatchers.innerHTML = ' <i class="fa-solid fa-eye" id="gitInfo" title="Watchers: ' + data.watchers_count + '"></i>'
-        redirectTextElement.appendChild(gitWatchers);
-        gitWatchers.style.fontSize = "20px"
-
-        gitDesc.innerHTML = ' <i class="fa-solid fa-d" id="gitInfo" title="Description:\n' + data.description + '"></i>'
-        redirectTextElement.appendChild(gitDesc);
-        gitDesc.style.fontSize = "20px"
-
-        redirectAnchor.appendChild(redirectTextElement);
       })
+      .catch(error => console.error('error occured on' + title + error))
+      
     }
     else {
-      const redirectTextElement = document.createElement('p1');
-      redirectTextElement.textContent = 'project aint on github so nothing here';
-      redirectAnchor.appendChild(redirectTextElement);
+        const gitLang = document.createElement('p');
+        const gitCreate = document.createElement('p');
+        const gitUpdate = document.createElement('p');
+        const gitWatchers = document.createElement('p');
+        const gitDesc = document.createElement('p');
+        const gitFork = document.createElement('p');
+        const gitLicense = document.createElement('p');
+        const gitTopics = document.createElement('p');
+
+        gitLang.innerHTML = '<i class="fa-duotone fa-language" title="Language"></i> NA'
+        gitWatchers.innerHTML = '<i class="fa-duotone fa-eye" title="Number Of Watchers | Repository Publicity"></i> NA : NA'
+        gitCreate.innerHTML = '<i class="fa-duotone fa-calendar-circle-plus" title="Date Created"></i> NANA-NA-NA'
+        gitUpdate.innerHTML = '<i class="fa-duotone fa-calendar-circle-exclamation" title="Date Last Updated"></i> NANA-NA-NA'
+        gitDesc.innerHTML = '<i class="fa-duotone fa-message-smile" title="Description"></i> NA'
+        gitFork.innerHTML = '<i class="fa-duotone fa-fork" title="Number Of Forks | Forkable"></i> NA : NA'
+        gitLicense.innerHTML = '<i class="fa-duotone fa-id-card" title="License"></i> NA'
+        gitTopics.innerHTML = '<i class="fa-duotone fa-tag" title="Tags"></i> NA'
+
+        gitInfoDiv.appendChild(gitLang)
+        gitInfoDiv.appendChild(gitWatchers)
+        gitInfoDiv.appendChild(gitCreate)
+        gitInfoDiv.appendChild(gitUpdate)
+        gitInfoDiv.appendChild(gitDesc)
+        gitInfoDiv.appendChild(gitFork)
+        gitInfoDiv.appendChild(gitLicense)
+        gitInfoDiv.appendChild(gitTopics)
     }
-    // return the "box" div
+
+    const actionDiv = document.createElement('div')
+    actionDiv.style.height = "31%"
+    actionDiv.style.width = "100%"
+    actionDiv.className = 'actionDiv'
+    infoDiv.appendChild(actionDiv)
+
+    const copyLink = document.createElement('a')
+    const downloadLink = document.createElement('a')
+    const sourceLink = document.createElement('a')
+
+    copyLink.addEventListener('click', function() {
+      copyTextToClipboard(link);
+    })
+    copyLink.href = ""
+    copyLink.innerHTML = '<i class="fa-duotone fa-circle-c"></i>'
+    copyLink.title = "Copy Link"
+    copyLink.className = 'actionButton'
+
+    if (dlLink.substring(0,8) == 'https://') {downloadLink.href = dlLink;downloadLink.title = "Redirect To External Download Page";downloadLink.innerHTML = '<i class="fa-duotone fa-circle-plus"></i>'}
+    else {downloadLink.href = link + '/' + dlLink;downloadLink.title = "Download";downloadLink.innerHTML = '<i class="fa-duotone fa-circle-down"></i>'}
+    downloadLink.className = 'actionButton'
+
+    sourceLink.href = link
+    sourceLink.innerHTML = '<i class="fa-duotone fa-circle-up-right"></i>'
+    copyLink.title = "Source Code"
+    sourceLink.className = 'actionButton'
+
+    actionDiv.appendChild(copyLink)
+    actionDiv.appendChild(downloadLink)
+    actionDiv.appendChild(sourceLink)
+
+    //* copy     <i class="fa-solid fa-circle-c"></i>
+    //* download <i class="fa-solid fa-circle-down"></i>
+    //* source   <i class="fa-solid fa-circle-up-right"></i>
+
     return boxDiv;
   }
-
-
-
-
-
-
-
-
-
-
-

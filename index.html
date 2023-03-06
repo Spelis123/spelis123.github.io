@@ -2,44 +2,32 @@
 <html>
   <head>
     <title>Spelis's Projects</title>
-    <meta content="Spelis's Projects" property="og:title" />
-    <meta content="" property="og:description" />
-    <meta content="https://spelis123.github.io/" property="og:url" />
-    <meta content="https://spelis123.github.io/sgi.png" property="og:image" />
+
+    <meta property="og:title" content="Spelis's Projects" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://spelis123.github.io" />
+    <meta property="og:image" content="http://spelis123.github.io/images/BannerImage.png" />
+    <meta property="og:description" content="My Website With All+ Of My Projects!" />
+    <meta name="theme-color" content="#0080ff">
+
+    <meta name="twitter:card" content="summary_large_image">
+
     <meta content="#0080ff" data-react-helmet="true" name="theme-color" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/40d1c06b57.js" crossorigin="anonymous"></script>
+    <link href="https://rawcdn.githack.com/hung1001/font-awesome-pro-v6/44659d9/css/all.css" rel="stylesheet" type="text/css" />
     <script src="scripts.js"></script>
     <link rel="icon" type="image/x-icon" href="images/sgi.png">
   </head>
 
   <body style="background-color:black;color:white;">
-    <div class="area" style="z-index:-2; position:fixed">
-      <ul class="circles">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-      </ul>
-  </div>
 
-    <center>
-      <div style="font-size: 24px; background: linear-gradient(to right, #0080ff80 0%, #ff101080 100%);padding: 10px;border-bottom-right-radius: 50%;border-bottom-left-radius: 50%;">
-      <img src="images/sgi.png" width="80px">
+    <center style="width: 49vw; height: 100vh; float: left;background: #101010; position: fixed; overflow-y: scroll;">
+      <div class="banner">
+      <img src="images/sgi.png" width="80px" style="border-radius: 15px;">
       <h1 style="margin:0;">Spelis's Projects</h1>
       <p style="font-size:20px">The Home For <a href="https://github.com/spelis123">All My Projects</a> Hosted On <a href="https://github.com/"><i class="fa-brands fa-github"></i> GitHub!</a> And A Couple Other Projects!</p></div><h3>Socials:</h3>
-      <div style="height:70px">
+      <div style="height:70px;">
 
         <socials id="crim" id="right" title="Tag:
 @spelis123"><a href="https://youtube.com/@spelis123"><i class="fa-brands fa-youtube"></i></a></socials>
@@ -47,7 +35,6 @@
         <socials id="purp" id="right" title="Name:
 spelis123"><a href="https://twitch.tv/spelis123"><i class="fa-brands fa-twitch"></i></a></socials>
 
-        <socials id="green"><a href="about.html" title="About Me"><i class="fa-solid fa-user"></i></a></socials>
         <socials id="blurp" id="right" title="Tag:
 Spelis123#0137
 Server:
@@ -56,27 +43,35 @@ discord.gg/FxRmZfQnRs"><a href="https://discord.gg/FxRmZfQnRs"><i class="fa-bran
         <socials id="corn" id="right" title="Contact Me:
 Spelis@duck.com"><a onclick="copyTextToClipboard('Spelis@duck.com')"><i class="fa-solid fa-inbox"></i></a></socials>
       </div>
+      <embed src="about.html" style="background-color: transparent;border-width: 0; width: 80%; height:37.5%; scrollbar-width: none;"></embed>
+      </div>
     </center>
 
-    <div id="parent">
+    <div id="parent" style="display: flex;flex-wrap: wrap; background-color: #00000000; width: 50vw; float: right; margin-right: 0.5vw;">
       <!-- "box" div elements will be appended here -->
     </div>
     
     <script>
       // create a new "box" div element
-      const boxDiv = makeBoxDiv('#ff8000', 'Skin To PFP', 'https://github.com/Spelis123/SkinToPFP', 'images/stp.png', 'github','https://api.github.com/repos/Spelis123/SkinToPFP','https://github.com/Spelis123/SkinToPFP/raw/main/dist/SkinStealer.exe');
+      const boxDiv = makeBoxDiv('Skin To PFP', 'SkinToPFP', 'images/stp.png','SkinToPFP','raw/main/dist/SkinStealer.exe');
       document.getElementById('parent').appendChild(boxDiv);
 
-      const boxDiv1 = makeBoxDiv('#0080ff', 'Password Generator', 'https://github.com/Spelis123/passgen', 'images/pg.png', 'github','https://api.github.com/repos/Spelis123/passgen','https://github.com/Spelis123/passgen/raw/main/passwordgen.exe');
+      const boxDiv1 = makeBoxDiv('Password Generator', 'passgen', 'images/pg.png','passgen','raw/main/passwordgen.exe');
       document.getElementById('parent').appendChild(boxDiv1);
 
-      const boxDiv2 = makeBoxDiv('#00ff80', 'spelis123.github.io', 'https://github.com/Spelis123/spelis123.github.io', 'images/sgi.png', 'github','https://api.github.com/repos/Spelis123/spelis123.github.io');
+      const boxDiv2 = makeBoxDiv('spelis123.github.io', 'spelis123.github.io', 'images/sgi.png','spelis123.github.io');
       document.getElementById('parent').appendChild(boxDiv2);
 
-      const boxDiv3 = makeBoxDiv('#ff0080', 'TxtlyBot', 'https://discord.com/api/oauth2/authorize?client_id=1049360615665319956&permissions=8&scope=bot', 'images/txtly.png', 'discord','','');
+      const boxDiv3 = makeBoxDiv('TxtlyBot', 'https://discord.com/api/oauth2/authorize?client_id=1049360615665319956&permissions=8&scope=bot', 'images/txtly.png','','https://discord.com/api/oauth2/authorize?client_id=1049360615665319956&permissions=8&scope=bot');
       document.getElementById('parent').appendChild(boxDiv3);
+
+      const boxDiv4 = makeBoxDiv('Modrinth Tweaks', 'ModrinthTweak', 'images/mrt.png','ModrinthTweak','https://addons.mozilla.org/en-US/firefox/addon/modrinth-tweaks/');
+      document.getElementById('parent').appendChild(boxDiv4);
+
+      const boxDiv5 = makeBoxDiv('SpearDev IDE', 'SpearDev', 'images/sdi.png','SpearDev','');
+      document.getElementById('parent').appendChild(boxDiv5);
     </script>
 
-    <a href="https://www.youtube.com/watch?v=LLFhKaqnWwk"><img src="https://i.ibb.co/6bkX9WW/spelis.png" id="spelis"></a>
+    <a><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Moai/3D/moai_3d.png" id="thing"></a>
   </body>
 </html>

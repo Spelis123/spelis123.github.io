@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Roboto;
+    src: url('font.ttf');
+}
 html > * {
     font-family: Roboto;
     margin:0px;
@@ -6,11 +10,9 @@ title {
     animation-delay: 0s;
 }
 h1 {
-    font-family: Roboto;
     color:white
 }
 p {
-    font-family: Roboto;
     color:white
 }
 a {
@@ -19,21 +21,128 @@ a {
     transition: 0.5s ease;
     cursor: pointer;
 }
-i#gitInfo {
-    background-color: #001020ff;
-    border-radius: 5px;
+
+
+
+.box {
+    width: 15.73vw;
+    height: 15.73vw;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: 0.5vw;
+    border-bottom-width: 2vw;
+    margin-top: .92vw;
+    margin-left: .46vw;
+    margin-right: .46vw;
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+    border: 2px solid transparent;
+    transition: all .5s ease;
+    scrollbar-width: none;
+}
+.box:hover {
+    border-radius: 1vw;
+    border-color: white;
+    border-width: 2px;
+}
+.box > .arrowHint {
+    position:absolute;
+    right:15px;
+    bottom:15px;
+
+}
+.box > .infoDiv * {
+    margin: 0;
+}
+.box > .imagebox {
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    text-align: center;
+    filter: blur(5px) grayscale(75%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all .5s ease;
+}
+.box > .infoDiv {
+    transition:all .5s ease;
+    height:0;
+    overflow: hidden;
+}
+.box:hover > .infoDiv {
+    height:100%;
+}
+.box:hover > .imagebox {
+    filter: none;
+}
+.box > .text {
+    position:absolute;
+    width:100%;
+    text-align: center;
+    bottom:0;
+    left:0;
+    background-color: #00000080;
+    vertical-align: middle;
+}
+.box > .infoDiv > .gitInfoDiv > p > a.tag {
+    color:white;
+    text-decoration: none;
+    background-color: #0080ff80;
+    border-radius: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 5px;
+    transition: all .5s ease;
+}
+.box > .infoDiv > .gitInfoDiv > p > a.tag:hover {
+    background-color: #00bfffbf;
+}
+.box > .infoDiv > .actionDiv > a.actionButton {
+    font-size: 70px;
+    text-align: center;
+    width: 33.333333333%;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    background-color: #15151580;
+}
+.box > .infoDiv > .actionDiv > a.actionButton:hover::before {
+    opacity: 1;
+    transition: all .5s ease;
+}
+.box > .infoDiv > .actionDiv > a.actionButton::before {
+    background: linear-gradient(133deg, #092c79, #00ffad);
+    mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.box > .text > h1 {
+    color:#fff;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
+    white-space: nowrap;
+    overflow-x: scroll;
+    margin: 0;
+    scrollbar-width: none;
+    transition: all .5s ease;
+}
+.box a1 {
+    text-decoration: none;
     color: #0080ff;
-    padding:5px;
-    border-radius: 5px;
-    transition: all .5s ease;
+    transition: 0.5s ease;
+    cursor: pointer;
 }
-i#gitInfo:hover {
-    background-color: #0080ffff;
-    color: #ffffff;
-    padding:7.5px;
-    border-radius: 5px;
-    transition: all .5s ease;
-}
+
+
+
 a:hover {
     text-decoration: underline;
     color: #ffffff;
@@ -43,165 +152,6 @@ a:hover {
     color: #ffd700;
     text-shadow: 0px 0px 10px gold;
 }
-.box {
-    width:calc(25% - 30px);
-    height:200px;
-    border-radius: 20px;
-    background: #101010;
-    text-align: center;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    position: relative;
-    float: left;
-    border: 5px solid #050505;
-    overflow: hidden;
-    align-self: center;
-    transition: all .5s ease;
-}
-.box:hover {
-    background: brightness(.5) !important;
-    box-shadow: 0px 0px 20px #0080ff;
-    transition: all .5s ease;
-}
-.dlbox {
-    margin:0;
-    width:100%;
-    height:200px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-.dlbox button {
-    float:right;
-}
-.box#off {
-    background-color: #070707;
-    border-color: #030303;
-}
-.box div.text {
-    visibility: hidden;
-    width:100%;
-    height:50%;
-    text-align: center;
-    background-image: linear-gradient(0deg,#101010BF 75%, #10101000);
-    position: absolute;
-    bottom:-100%;
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-.box:hover div.text {
-    visibility: visible;
-    bottom:0;
-    transition: all .5s ease;
-}
-.box h1 {
-    font-size: 150%;
-}
-.box p1 {
-    font-size: 100%;
-    font-family: Roboto;
-}
-.box a {
-    font-family: Roboto;
-    font-weight: bold;
-    text-decoration: none;
-    color:cornflowerblue;
-}
-.box a1 {
-    font-family: Roboto;
-    font-weight: bold;
-    text-decoration: none;
-    color:cornflowerblue;
-}
-.box a#off {
-    font-family: Roboto;
-    font-weight: bold;
-    text-decoration: none;
-    color: #9ba4b5;
-    
-}
-.box .imagebox {
-    background: linear-gradient(156deg, rgba(0,0,0,75%) 0%, rgba(0,0,0,0) 100%);
-    height:100%;
-    width:100%;
-    position:absolute;
-    bottom:0;
-    transition: all .5s ease;
-}
-.box .thing {
-    position:absolute;
-    width:25%;
-    height:25%;
-    background-color: #101010;
-    top:-35%;
-    left:-25%;
-    clip-path: polygon(100% 0, 50% 0, 50% 100%); 
-    z-index: 1;
-    text-align: right;
-    transition: all .5s ease;
-}
-.box .thing > * {
-    margin-right: 25%;
-    margin-top: 5%;
-}
-.box .copylink {
-    position:absolute;
-    width:12%;
-    height:25%;
-    background-color: #151515;
-    bottom:-10%;
-    right:-25%;
-    z-index: 3;
-    text-align: right;
-    padding: 1.25%;
-    transition: all .5s ease;
-    border-top-left-radius: 12.5px;
-    border-left: 2px solid #202020;
-    border-top: 2px solid #202020;
-}
-.box .copylink > * {
-    margin-left: 3%;
-}
-.box:hover .copylink {
-    right:0%;
-    transition: all .5s ease;
-}
-.box:hover .thing {
-    top:-10%;
-    left:-12.75%;
-    transition: all .5s ease;
-}
-.box > .imagebox > img {
-    background-color: #00000060;
-    height:75%;
-    width:33.337%;
-    margin-top: 4%;
-    border-radius: 10%;
-    padding: 2%;
-    transition: all .5s ease;
-}
-.box:hover > .imagebox > img {
-    background-color: #000000BF;
-    border-radius: 50%;
-    padding: 0;
-    height:110%;
-    width: 48.89%;
-    margin-top: -2.5%;
-    margin-left: 65%;
-    transition: all .5s ease;
-}
-.box share {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-}
-button {
-    background-color: #0080ff;
-    border: 0px solid #00000000;
-    border-radius: 5px;
-    color: white;
-    font-size: large;
-}
 socials {
     margin-left: 10px;
     margin-right: 10px;
@@ -209,7 +159,8 @@ socials {
     transition: .2s ease-in-out;
 }
 socials a {
-    color:#303030;
+    color:#202020;
+    text-shadow: 0px 0px 10px #000;
 }
 socials:hover {
     font-size: 62.5px;
@@ -218,7 +169,7 @@ socials:hover {
     transition: .3s ease-in-out;
 }
 socials#crim a:hover {
-    color: crimson;
+    color: #dc143c;
 }
 socials#purp a:hover {
     color: #8d5ed4;
@@ -230,46 +181,17 @@ socials#blurp a:hover {
     color: #5865F2;
 }
 socials#corn a:hover {
-    color: cornflowerblue;
+    color: #6495ed;
 }
-img#spelis {
+img#thing {
     position: fixed;
-    bottom:-30px;
-    left:0;
-    width:80px;
-    transition: 0.3s ease-in;
-    transition-delay: 0s;
-}
-img#spelis:hover {
     bottom:0px;
     left:0;
     width:80px;
-    transition: 0.3s ease-out;
-    transition-delay: 0.25s;
+    transform: rotateY(180deg);
 }
 div.aboutme h3 {
-    font-family: Roboto;
     font-weight: 300;
-}
-.downloadbox {
-    background-color: #000000bf;
-    border: 5px solid white;
-    width:75%;
-    height:75%;
-    position: fixed;
-    top:12.5%;
-    left:12.5%;
-    align-content: center;
-    border-radius: 100px;
-    text-align: center;
-}
-.downloadbox > * {
-    font-size: 200%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-.downloadbox h1 {
-    font-size:300%;
 }
 a1 > .tpt {
     background-color: #10101000;
@@ -318,123 +240,16 @@ div#parent {
     width: 100%;
     height:100%;
 }
-
-.area{
-    background: hsl(237, 0%, 1%);
-    width: 100%;
-    height:100vh;
-}
-
-.circles{
+.centered {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.circles li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: #ffffff20;
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-    
-}
-
-.circles li:nth-child(1){
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
-}
-
-
-.circles li:nth-child(2){
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
-}
-
-.circles li:nth-child(3){
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-}
-
-.circles li:nth-child(4){
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
-}
-
-.circles li:nth-child(5){
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
-}
-
-.circles li:nth-child(6){
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
+    top: 50%;
     left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 11s;
-}
-
-
-
-@keyframes animate {
-
-    0%{
-        transform: translateY(0) rotate(-720deg);
-        opacity: 1;
-        border-radius: 0;
-    }
-    100%{
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
-
+    transform: translate(-50%, -50%);
+  }
+.banner {
+    font-size: 24px; background-color: #639bff;padding: 10px;
+    background-image: url("images/BannerLogo.png");
+    background-position: bottom right;
+    background-size: 20vw;
+    background-repeat: no-repeat;
 }
