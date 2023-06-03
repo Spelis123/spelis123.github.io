@@ -1,0 +1,217 @@
+html,
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: 'Jetbrains Mono';
+  scroll-behavior: smooth;
+  scroll-snap-type: both mandatory;
+  text-decoration-color: white;
+}
+
+a[href],
+a[href]:visited {
+  background-color: transparent;
+  color: white;
+  display: block;
+  text-decoration: dotted;
+  text-decoration-color: azure;
+  text-transform: capitalize;
+}
+
+a[href]:hover {
+  text-shadow: 0 0 5px #fff;
+}
+
+a[href]:active {
+  text-shadow: 0 0 5px white, 0 0 10px white;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.fs {
+  width: calc(100vw - 30px);
+  height: calc(100vh - 30px) !important;
+  margin: 0;
+  padding: 15px;
+  scroll-snap-align: center;
+  scroll-snap-type: both mandatory;
+  overflow: hidden;
+}
+
+.cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+hr.v {
+  margin: 10px;
+  height: 30px;
+  border: .5px solid #fff8;
+  white-space: pre;
+  width: 0;
+}
+
+.aboutmeText {
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+@media (max-width: 820px) {
+  .nav {
+    width:90% !important;
+    left:5% !important;
+    font-size: medium !important;
+  }
+  .navContent {
+    padding:0 !important
+  }
+  .aboutmeText {
+    width: 100%;
+    font-size: 16px;
+  }
+  .PROJECTbackButton {
+    position:absolute;
+    top:20px;
+    left:20px;
+    font-size: 20px;
+  }
+  .PROJECTtitle {
+    font-size: 28px;
+    max-width: 100%;
+    white-space: pre;
+  }
+  .PROJECTinfo,
+  .PROJECTcontrols {
+    font-size: 20px;
+  }
+  hr.v#backbtn {
+    display:none;
+  }
+  .PROJECTcontrols {
+    display:block !important;
+    justify-content: none !important;
+    text-align: center;
+  }
+  .PROJECTcontrols a {
+    float:none !important;
+    width:100% !important;
+  }
+}
+
+.PROJECTcontrols {
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+}
+.PROJECTcontrols a {
+  width:fit-content;
+  float:left;
+}
+
+.PROJECT {
+  width:fit-content;
+}
+.PROJECT > * {
+  max-width: 500px;
+}
+
+.project {
+  float:left;
+  width:100px;
+  height:100px;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: all .3s ease;
+  background-color: #000;
+  margin:10px 10px;
+  z-index: -1;
+  cursor: pointer;
+}
+.project:hover {
+  transform: scale(200%,200%);
+  background-color: #222;
+  z-index: 2;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+
+.project > .text {
+  float:left;
+  font-size: 8px;
+}
+.project > img {
+  float:left;
+  width:100%;
+  height:100%;
+  transition: all .3s ease;
+}
+.project:hover > img {
+  width:100%;
+  height:0%;
+  filter:opacity(0) brightness(0)
+}
+
+.projects {
+  max-width: 1000px;
+  width:fit-content;
+  height:fit-content;
+  position: relative;
+}
+
+#projects {
+  position: relative;
+  background-color: #111;
+  box-shadow: inset 0 0 100px black;
+}
+
+#projects .SMRP {
+  float:left;
+  position: absolute;
+  bottom:10px;
+  left:10px;
+  width:25%;
+  height:50px;
+  margin:10px 0;
+  padding:0;
+  background-color: #0008;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+div.nav {
+  opacity: 1;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+  width: 50%;
+  height: 50px;
+  transform: translateY(-50%);
+  border-radius: 100px;
+  background-color: #8882;
+  backdrop-filter: blur(8px);
+  transition: all .3s ease;
+  cursor: default;
+}
+
+div.nav div.navContent {
+  text-align: center;
+  height: fit-content;
+  font-size: large;
+  padding: calc(25vh - 50%) 0;
+  display: flex;
+  line-height: 50px;
+  justify-content: space-around;
+}

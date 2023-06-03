@@ -1,0 +1,49 @@
+.coll .collbtn {
+  height:50px;
+  width:100%;
+  transition: all .3s ease;
+  position: relative;
+  user-select: none;
+}.coll:hover {
+  background-color: #111;
+}.coll:active {
+  background-color: #222;
+}
+
+
+
+.coll .collbtn > .text::after {
+  content: "+";
+  position: absolute;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+  line-height:50px;
+  width:50px;
+  height:100%;
+  z-index: 2;
+}.coll .collbtn:active > .text::after {
+  background-color: #222 !important;
+}.coll .collbtn:hover > .text::after {
+  background-color: #111;
+}
+
+.coll .collbtn > .text.minus::after {
+  content: "-"
+}
+
+
+
+.coll .collbtn > img {
+  height:100%;
+  width:auto;
+  float:left;
+}.coll .collbtn > .text {
+  float:left;
+  line-height: 50px;
+  width:calc(100% - 50px);
+  text-align: center;
+}
+.coll .collcon {
+  padding:10px;
+}

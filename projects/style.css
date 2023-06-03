@@ -1,0 +1,15 @@
+body > div {
+  max-width: 1000px;
+  width: fit-content;
+  height: 900px;
+  padding: 50px;
+  margin:50px;
+  scroll-snap-type:none !important;
+  scroll-snap-align: none !important;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+body {
+  scroll-snap-type:none !important;
+  scroll-snap-align: none !important;
+}
